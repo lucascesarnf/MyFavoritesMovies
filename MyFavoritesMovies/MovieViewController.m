@@ -19,8 +19,13 @@
     [super viewDidLoad];
     tableDataArray=[Favorites allObjects];
     [_mTableView reloadData];
+    /*
+    [self insertDataIntoDataBaseWithTitle:@"Batman" WithYear:@"1999" WithRating:@"7" WithSinopse:@"Eu sou o Batman" WithPoster:@"batman.jpg"];
     
+    [self insertDataIntoDataBaseWithTitle:@"Frozen" WithYear:@"2016" WithRating:@"4" WithSinopse:@"Você quer brincar na neve? Um boneco quer fazer?" WithPoster:@"frozen.jpg"];
     
+    [self insertDataIntoDataBaseWithTitle:@"Star Wars" WithYear:@"1897" WithRating:@"10" WithSinopse:@"A long Time Ago" WithPoster:@"starwars.jpg"];
+    */
 }
 
 - (void)didReceiveMemoryWarning {
