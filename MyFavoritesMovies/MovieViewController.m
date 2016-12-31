@@ -52,6 +52,12 @@
     cell.ratingLabel.text=information.rating;
     cell.sinopseLabel.text=information.sinopse;\
     cell.posterImageView.image = [UIImage imageNamed:information.poster];
+    if(indexPath.row%2==0){
+    cell.backgroundColor=[UIColor lightGrayColor];
+    cell.backgroundColor = [cell.backgroundColor colorWithAlphaComponent:0.2];
+    }else{
+      cell.backgroundColor=[UIColor whiteColor];
+    }
     return cell;
 }
 

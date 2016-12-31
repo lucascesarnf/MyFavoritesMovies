@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="redraw" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" editingAccessoryType="disclosureIndicator" rowHeight="144" id="S3d-pv-NQN" customClass="MovieCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" editingAccessoryType="disclosureIndicator" rowHeight="144" id="S3d-pv-NQN" customClass="MovieCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S3d-pv-NQN" id="Nhe-Kq-KFP">
@@ -101,7 +101,13 @@
                             <outlet property="delegate" destination="nvd-jY-9mY" id="fGE-0b-mwQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="gFF-A6-xPG"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="aNV-nd-anD">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="QrC-XH-ntV">
+                            <connections>
+                                <segue destination="BdZ-3r-eTf" kind="show" id="4Yd-Ui-9Bs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mTableView" destination="Ho6-Fe-r1x" id="nwO-HZ-kH4"/>
                     </connections>
@@ -109,6 +115,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2q2-Qa-fEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="656.79999999999995" y="-3.1484257871064472"/>
+        </scene>
+        <!--Add Movie-->
+        <scene sceneID="SN2-Gx-EJy">
+            <objects>
+                <tableViewController id="BdZ-3r-eTf" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZCN-Re-Ezg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="u0x-9e-PUL">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="BdZ-3r-eTf" id="xtS-WB-3Wq"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hfi-dM-tFq">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hfi-dM-tFq" id="acc-yX-tzs">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="BdZ-3r-eTf" id="Z0v-rg-7xM"/>
+                            <outlet property="delegate" destination="BdZ-3r-eTf" id="yhY-hJ-ZRB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Movie" id="cEV-Jr-i2t"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="bPb-YA-hEb" id="l6m-fo-UZy"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="00p-mp-vXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="LzE-yG-HPX">
+                    <connections>
+                        <outlet property="delegate" destination="BdZ-3r-eTf" id="0Se-8H-ccd"/>
+                        <outlet property="searchContentsController" destination="BdZ-3r-eTf" id="VlF-u9-TSm"/>
+                        <outlet property="searchResultsDataSource" destination="BdZ-3r-eTf" id="dpq-Hf-EcM"/>
+                        <outlet property="searchResultsDelegate" destination="BdZ-3r-eTf" id="6uj-ua-tiE"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="bPb-YA-hEb">
+                    <connections>
+                        <outlet property="delegate" destination="BdZ-3r-eTf" id="uvO-jG-4L4"/>
+                        <outlet property="searchBar" destination="u0x-9e-PUL" id="uoK-6F-f8H"/>
+                        <outlet property="searchContentsController" destination="BdZ-3r-eTf" id="B7I-zq-DVW"/>
+                        <outlet property="searchResultsDataSource" destination="BdZ-3r-eTf" id="2ZE-Rn-fZU"/>
+                        <outlet property="searchResultsDelegate" destination="BdZ-3r-eTf" id="yvJ-r1-dle"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1622" y="-3"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XPa-PJ-7Rc">
