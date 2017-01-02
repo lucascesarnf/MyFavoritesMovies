@@ -14,5 +14,6 @@
     Favorites *selectedDataObject;
 }
 @property (strong, nonatomic) IBOutlet UITableView *mTableView;
+- (IBAction)deleteMovie;
 
 @end

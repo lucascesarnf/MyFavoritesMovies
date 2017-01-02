@@ -207,7 +207,13 @@
                             <outlet property="delegate" destination="TM0-eq-zsZ" id="fi6-QZ-LHb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Informations" id="u9b-I3-GSV"/>
+                    <navigationItem key="navigationItem" title="Informations" id="u9b-I3-GSV">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="DAp-78-unA">
+                            <connections>
+                                <action selector="deleteMovie:" destination="TM0-eq-zsZ" id="opt-1z-jfT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="posterImageView" destination="X1j-X0-5bm" id="AKd-de-IjE"/>
                         <outlet property="ratingLabel" destination="bhB-Qk-Ag9" id="seL-eM-bfE"/>

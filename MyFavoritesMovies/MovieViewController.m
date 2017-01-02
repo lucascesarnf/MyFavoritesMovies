@@ -20,7 +20,7 @@
     [super viewDidLoad];
     tableDataArray=[Favorites allObjects];
     [_mTableView reloadData];
-    /*
+/*
     [self insertDataIntoDataBaseWithTitle:@"Batman" WithYear:@"1999" WithRating:@"7" WithSinopse:@"Eu sou o Batman" WithPoster:@"batman.jpg"];
     
     [self insertDataIntoDataBaseWithTitle:@"Frozen" WithYear:@"2016" WithRating:@"4" WithSinopse:@"Você quer brincar na neve? Um boneco quer fazer?" WithPoster:@"frozen.jpg"];
@@ -28,7 +28,7 @@
     [self insertDataIntoDataBaseWithTitle:@"Star Wars" WithYear:@"1897" WithRating:@"10" WithSinopse:@"A long Time Ago" WithPoster:@"starwars.jpg"];
      
     [self insertDataIntoDataBaseWithTitle:@"Titanic" WithYear:@"1997" WithRating:@"7.7" WithSinopse:@"A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.1500 people were on the ship, some first class, others restrained to the lower decks where windows were limited. Either way, the passengers on board the Titanic held high hopes, not because it was deemed 'the unsinkable ship' but because they were leaving their past behind them and preparing for a new life in America." WithPoster:@"titanic.jpg"];
-    */
+ */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,20 +98,28 @@
     return YES;
 }
 */
-
-
+- (IBAction)deleteMovie{
+NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+Favorites *information = [tableDataArray objectAtIndex:indexPath.row];
+RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm deleteObject:information];
+    [realm commitWriteTransaction];
+    [_mTableView reloadData];
+}
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"movieInformation"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-         InformationViewController *destViewController = segue.destinationViewController;
+        InformationViewController *destViewController = segue.destinationViewController;
         Favorites *information = [tableDataArray objectAtIndex:indexPath.row];
         destViewController.title = information.title;
         destViewController.year = information.year;
         destViewController.rating = information.rating;
         destViewController.sinopse = information.sinopse;
         destViewController.poster = information.poster;
+        destViewController.father = self;
     
     }
 }

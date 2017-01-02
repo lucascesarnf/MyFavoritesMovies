@@ -96,4 +96,30 @@
 }
 */
 
+- (IBAction)deleteMovie:(id)sender {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Delete Movie"
+                                  message:@"You want delete the movie?"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction * action) {
+                                                     [_father deleteMovie];
+                                                     [self back];
+                                                 }];
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+    
+    [alert addAction:cancel];
+    [alert addAction:delete];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+-(void) back{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 @end

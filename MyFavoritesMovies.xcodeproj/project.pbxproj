@@ -197,7 +197,6 @@
 				CAAD35DB1E172B7900771A17 /* Main.storyboard */,
 				CAAD35DE1E172B7900771A17 /* Assets.xcassets */,
 				CAAD35E01E172B7900771A17 /* LaunchScreen.storyboard */,
-				CAAD35E31E172B7900771A17 /* Info.plist */,
 				CAAD35D21E172B7900771A17 /* Supporting Files */,
 			);
 			path = MyFavoritesMovies;
@@ -206,6 +205,7 @@
 		CAAD35D21E172B7900771A17 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CAAD35E31E172B7900771A17 /* Info.plist */,
 				CAAD35D51E172B7900771A17 /* AppDelegate.h */,
 				CAAD35D61E172B7900771A17 /* AppDelegate.m */,
 				CAAD35D31E172B7900771A17 /* main.m */,
