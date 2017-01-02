@@ -13,23 +13,27 @@
 @end
 
 @implementation InformationViewController
-
+@synthesize title;
+@synthesize year;
+@synthesize rating;
+@synthesize sinopse;
+@synthesize poster;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _sinopseLabel.userInteractionEnabled = NO;
+    _titleLabel.text = title;
+    _yearLabel.text = year;
+    _ratingLabel.text = rating;
+    _sinopseLabel.text = sinopse;
+    _posterImageView.image = [UIImage imageNamed:poster];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
+/*
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -39,7 +43,6 @@
     return 0;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     

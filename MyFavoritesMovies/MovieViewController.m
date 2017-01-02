@@ -8,6 +8,7 @@
 
 #import "MovieViewController.h"
 #import "MovieCell.h"
+#import "InformationViewController.h"
 
 @interface MovieViewController ()
 
@@ -97,15 +98,23 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"movieInformation"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+         InformationViewController *destViewController = segue.destinationViewController;
+        Favorites *information = [tableDataArray objectAtIndex:indexPath.row];
+        destViewController.title = information.title;
+        destViewController.year = information.year;
+        destViewController.rating = information.rating;
+        destViewController.sinopse = information.sinopse;
+        destViewController.poster = information.poster;
+    
+    }
 }
-*/
+
 -(void)insertDataIntoDataBaseWithTitle:(NSString *)title WithYear:(NSString *)year WithRating:(NSString *)rating WithSinopse:(NSString *)sinopse WithPoster:(NSString *)poster
 {
     RLMRealm *realm = [RLMRealm defaultRealm];
