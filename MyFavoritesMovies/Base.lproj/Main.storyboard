@@ -93,7 +93,7 @@
                                     <outlet property="sinopseLabel" destination="Sye-sA-6za" id="tf4-wO-9jr"/>
                                     <outlet property="titleLabel" destination="8Kw-TE-4Ia" id="qOv-qW-4Pa"/>
                                     <outlet property="yearLabel" destination="7GO-63-Ytp" id="UXx-0A-3IV"/>
-                                    <segue destination="bel-Ap-bta" kind="show" id="TwO-B1-e9b"/>
+                                    <segue destination="toY-j2-jGj" kind="show" id="JuW-26-VE6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -118,33 +118,37 @@
             <point key="canvasLocation" x="240.80000000000001" y="-4.0479760119940034"/>
         </scene>
         <!--Information-->
-        <scene sceneID="bjn-Xr-0Ua">
+        <scene sceneID="U8V-Ym-o9F">
             <objects>
-                <tableViewController id="bel-Ap-bta" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="28" sectionFooterHeight="28" id="IXo-B1-6LS">
+                <tableViewController id="toY-j2-jGj" customClass="InformationViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Olt-2e-BTh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="94" id="G8G-CE-Sdx">
-                                <rect key="frame" x="0.0" y="28" width="375" height="94"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G8G-CE-Sdx" id="fS2-OO-QQy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <sections>
+                            <tableViewSection id="pzN-gc-Ayt">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="81" id="es7-Ff-TFc">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="es7-Ff-TFc" id="YDm-7d-T3W">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
-                            <outlet property="dataSource" destination="bel-Ap-bta" id="5X8-0W-LdP"/>
-                            <outlet property="delegate" destination="bel-Ap-bta" id="j7s-hZ-R9x"/>
+                            <outlet property="dataSource" destination="toY-j2-jGj" id="SSl-7y-9pF"/>
+                            <outlet property="delegate" destination="toY-j2-jGj" id="gPP-6S-B9T"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Information" id="p8V-4G-Uzp"/>
+                    <navigationItem key="navigationItem" title="Information" id="AAp-kK-ze9"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F7c-6u-jK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Z8-Rr-DeR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1188" y="400"/>
+            <point key="canvasLocation" x="1186.4000000000001" y="276.61169415292358"/>
         </scene>
         <!--Add Movie-->
         <scene sceneID="SN2-Gx-EJy">

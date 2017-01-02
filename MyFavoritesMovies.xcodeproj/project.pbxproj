@@ -15,6 +15,7 @@
 		CA60377B1E172F9D0051769A /* frozen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA6037781E172F9D0051769A /* frozen.jpg */; };
 		CA60377C1E172F9D0051769A /* starwars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA6037791E172F9D0051769A /* starwars.jpg */; };
 		CA6037801E172FF60051769A /* Favorites.m in Sources */ = {isa = PBXBuildFile; fileRef = CA60377F1E172FF60051769A /* Favorites.m */; };
+		CA9988901E1A7BF800B7D8F7 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA99888F1E1A7BF800B7D8F7 /* InformationViewController.m */; };
 		CAAD35D41E172B7900771A17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD35D31E172B7900771A17 /* main.m */; };
 		CAAD35D71E172B7900771A17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD35D61E172B7900771A17 /* AppDelegate.m */; };
 		CAAD35DD1E172B7900771A17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAAD35DB1E172B7900771A17 /* Main.storyboard */; };
@@ -60,6 +61,8 @@
 		CA6037791E172F9D0051769A /* starwars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = starwars.jpg; sourceTree = "<group>"; };
 		CA60377E1E172FF60051769A /* Favorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorites.h; sourceTree = "<group>"; };
 		CA60377F1E172FF60051769A /* Favorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorites.m; sourceTree = "<group>"; };
+		CA99888E1E1A7BF800B7D8F7 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
+		CA99888F1E1A7BF800B7D8F7 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		CAAD35CF1E172B7900771A17 /* MyFavoritesMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFavoritesMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAAD35D31E172B7900771A17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CAAD35D51E172B7900771A17 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				CA6037711E172D3C0051769A /* MovieViewController.m */,
 				CA6037731E172DAA0051769A /* MovieCell.h */,
 				CA6037741E172DAA0051769A /* MovieCell.m */,
+				CA99888E1E1A7BF800B7D8F7 /* InformationViewController.h */,
+				CA99888F1E1A7BF800B7D8F7 /* InformationViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				CAAD35D71E172B7900771A17 /* AppDelegate.m in Sources */,
 				CA6037721E172D3C0051769A /* MovieViewController.m in Sources */,
 				CA6037751E172DAA0051769A /* MovieCell.m in Sources */,
+				CA9988901E1A7BF800B7D8F7 /* InformationViewController.m in Sources */,
 				CA6037801E172FF60051769A /* Favorites.m in Sources */,
 				CAAD35D41E172B7900771A17 /* main.m in Sources */,
 			);
