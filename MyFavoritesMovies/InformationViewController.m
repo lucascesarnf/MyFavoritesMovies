@@ -20,7 +20,7 @@
 @synthesize poster;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _sinopseLabel.userInteractionEnabled = NO;
+    _sinopseLabel.editable = NO;
     _titleLabel.text = title;
     _yearLabel.text = year;
     _ratingLabel.text = rating;

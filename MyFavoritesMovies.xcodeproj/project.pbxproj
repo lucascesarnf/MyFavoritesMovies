@@ -16,6 +16,7 @@
 		CA60377C1E172F9D0051769A /* starwars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA6037791E172F9D0051769A /* starwars.jpg */; };
 		CA6037801E172FF60051769A /* Favorites.m in Sources */ = {isa = PBXBuildFile; fileRef = CA60377F1E172FF60051769A /* Favorites.m */; };
 		CA9988901E1A7BF800B7D8F7 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA99888F1E1A7BF800B7D8F7 /* InformationViewController.m */; };
+		CA9988921E1AB56C00B7D8F7 /* titanic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA9988911E1AB56C00B7D8F7 /* titanic.jpg */; };
 		CAAD35D41E172B7900771A17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD35D31E172B7900771A17 /* main.m */; };
 		CAAD35D71E172B7900771A17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD35D61E172B7900771A17 /* AppDelegate.m */; };
 		CAAD35DD1E172B7900771A17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAAD35DB1E172B7900771A17 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		CA60377F1E172FF60051769A /* Favorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorites.m; sourceTree = "<group>"; };
 		CA99888E1E1A7BF800B7D8F7 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		CA99888F1E1A7BF800B7D8F7 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
+		CA9988911E1AB56C00B7D8F7 /* titanic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = titanic.jpg; sourceTree = "<group>"; };
 		CAAD35CF1E172B7900771A17 /* MyFavoritesMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFavoritesMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAAD35D31E172B7900771A17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CAAD35D51E172B7900771A17 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,12 +136,10 @@
 		CA60376F1E172D140051769A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CA6037701E172D3C0051769A /* MovieViewController.h */,
-				CA6037711E172D3C0051769A /* MovieViewController.m */,
-				CA6037731E172DAA0051769A /* MovieCell.h */,
-				CA6037741E172DAA0051769A /* MovieCell.m */,
 				CA99888E1E1A7BF800B7D8F7 /* InformationViewController.h */,
 				CA99888F1E1A7BF800B7D8F7 /* InformationViewController.m */,
+				CA6037701E172D3C0051769A /* MovieViewController.h */,
+				CA6037711E172D3C0051769A /* MovieViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -148,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6037771E172F9D0051769A /* batman.jpg */,
+				CA9988911E1AB56C00B7D8F7 /* titanic.jpg */,
 				CA6037781E172F9D0051769A /* frozen.jpg */,
 				CA6037791E172F9D0051769A /* starwars.jpg */,
 			);
@@ -159,6 +160,8 @@
 			children = (
 				CA60377E1E172FF60051769A /* Favorites.h */,
 				CA60377F1E172FF60051769A /* Favorites.m */,
+				CA6037741E172DAA0051769A /* MovieCell.m */,
+				CA6037731E172DAA0051769A /* MovieCell.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA9988921E1AB56C00B7D8F7 /* titanic.jpg in Resources */,
 				CA60377A1E172F9D0051769A /* batman.jpg in Resources */,
 				CAAD35E21E172B7900771A17 /* LaunchScreen.storyboard in Resources */,
 				CAAD35DF1E172B7900771A17 /* Assets.xcassets in Resources */,

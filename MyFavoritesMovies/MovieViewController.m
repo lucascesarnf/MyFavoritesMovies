@@ -26,8 +26,9 @@
     [self insertDataIntoDataBaseWithTitle:@"Frozen" WithYear:@"2016" WithRating:@"4" WithSinopse:@"Você quer brincar na neve? Um boneco quer fazer?" WithPoster:@"frozen.jpg"];
     
     [self insertDataIntoDataBaseWithTitle:@"Star Wars" WithYear:@"1897" WithRating:@"10" WithSinopse:@"A long Time Ago" WithPoster:@"starwars.jpg"];
-     */
-    
+     
+    [self insertDataIntoDataBaseWithTitle:@"Titanic" WithYear:@"1997" WithRating:@"7.7" WithSinopse:@"A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.1500 people were on the ship, some first class, others restrained to the lower decks where windows were limited. Either way, the passengers on board the Titanic held high hopes, not because it was deemed 'the unsinkable ship' but because they were leaving their past behind them and preparing for a new life in America." WithPoster:@"titanic.jpg"];
+    */
 }
 
 - (void)didReceiveMemoryWarning {
