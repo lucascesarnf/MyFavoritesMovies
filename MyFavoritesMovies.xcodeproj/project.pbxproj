@@ -24,6 +24,7 @@
 		CAAD35E21E172B7900771A17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAAD35E01E172B7900771A17 /* LaunchScreen.storyboard */; };
 		CAAD35ED1E172B7900771A17 /* MyFavoritesMoviesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD35EC1E172B7900771A17 /* MyFavoritesMoviesTests.m */; };
 		CAAD35F81E172B7900771A17 /* MyFavoritesMoviesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD35F71E172B7900771A17 /* MyFavoritesMoviesUITests.m */; };
+		CAE9445F1E1C0EA100E74BA1 /* esses_homens_maravilhosos_e_suas_maquinas_voadoras.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAE9445E1E1C0EA100E74BA1 /* esses_homens_maravilhosos_e_suas_maquinas_voadoras.jpg */; };
 		D5A47D1D3154197D5CB79A1E /* libPods-MyFavoritesMovies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E45F469EC2EE23210986D5 /* libPods-MyFavoritesMovies.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		CAAD35F31E172B7900771A17 /* MyFavoritesMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFavoritesMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAAD35F71E172B7900771A17 /* MyFavoritesMoviesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyFavoritesMoviesUITests.m; sourceTree = "<group>"; };
 		CAAD35F91E172B7900771A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAE9445E1E1C0EA100E74BA1 /* esses_homens_maravilhosos_e_suas_maquinas_voadoras.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = esses_homens_maravilhosos_e_suas_maquinas_voadoras.jpg; sourceTree = "<group>"; };
 		E6FD34DA60862F5EF3D94FAF /* libPods-MyFavoritesMoviesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFavoritesMoviesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -147,6 +149,7 @@
 		CA6037761E172F9D0051769A /* IMG */ = {
 			isa = PBXGroup;
 			children = (
+				CAE9445E1E1C0EA100E74BA1 /* esses_homens_maravilhosos_e_suas_maquinas_voadoras.jpg */,
 				CA6037771E172F9D0051769A /* batman.jpg */,
 				CA9988911E1AB56C00B7D8F7 /* titanic.jpg */,
 				CA6037781E172F9D0051769A /* frozen.jpg */,
@@ -350,6 +353,7 @@
 				CA9988921E1AB56C00B7D8F7 /* titanic.jpg in Resources */,
 				CA60377A1E172F9D0051769A /* batman.jpg in Resources */,
 				CAAD35E21E172B7900771A17 /* LaunchScreen.storyboard in Resources */,
+				CAE9445F1E1C0EA100E74BA1 /* esses_homens_maravilhosos_e_suas_maquinas_voadoras.jpg in Resources */,
 				CAAD35DF1E172B7900771A17 /* Assets.xcassets in Resources */,
 				CAAD35DD1E172B7900771A17 /* Main.storyboard in Resources */,
 				CA60377C1E172F9D0051769A /* starwars.jpg in Resources */,

@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _sinopseLabel.editable = NO;
+    _titleLabel.editable= NO;
     _titleLabel.text = title;
     _yearLabel.text = year;
     _ratingLabel.text = rating;
