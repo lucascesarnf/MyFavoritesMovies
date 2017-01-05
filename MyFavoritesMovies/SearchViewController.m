@@ -7,16 +7,16 @@
 //
 
 #import "SearchViewController.h"
-
+#import <AFNetworking.h>
 @interface SearchViewController ()
 
 @end
 
 @implementation SearchViewController
+@synthesize movies;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -32,15 +32,37 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+  return 0;
 }
 -(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    NSLog(@"searchString=%@",searchBar.text);
     
+    NSString *link = [NSString stringWithFormat:@"https://www.omdbapi.com/?s=%@&y=&plot=short&r=json",searchBar.text];
+    NSURL *URL = [NSURL URLWithString:link];
+    /*
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+     }];*/
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+              // self.movies = [responseObject objectForKey:@"Search"];
+            NSLog(@"\n\nResponse:\n%@\n\nObjects:\n %@", response, responseObject);
+        }
+    }];
+    [dataTask resume];
+    NSLog(@"\n\nMovies:%@", self.movies);
 }
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

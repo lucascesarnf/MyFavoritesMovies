@@ -11,5 +11,7 @@
 @interface SearchViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *mTableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *mSearchBar;
+@property (nonatomic, retain) NSDictionary *movies;
+
 
 @end

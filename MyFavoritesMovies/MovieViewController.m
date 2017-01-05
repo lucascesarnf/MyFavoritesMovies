@@ -29,7 +29,7 @@
     [self insertDataIntoDataBaseWithTitle:@"Star Wars" WithYear:@"1897" WithRating:@"10" WithSinopse:@"A long Time Ago" WithPoster:@"starwars.jpg"];
      
     [self insertDataIntoDataBaseWithTitle:@"Titanic" WithYear:@"1997" WithRating:@"7.7" WithSinopse:@"A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.1500 people were on the ship, some first class, others restrained to the lower decks where windows were limited. Either way, the passengers on board the Titanic held high hopes, not because it was deemed 'the unsinkable ship' but because they were leaving their past behind them and preparing for a new life in America." WithPoster:@"titanic.jpg"];
- /*A Perseguição e o Assassinato de Jen-Paul Marat Desempenhados Pelos Loucos do Asilo de Charenton Sob a Direção do Marquês de Sade'
+ /*A Perseguição e o Assassinato de Jen-Paul Marat Desempenhados Pelos Loucos do Asilo de Charenton Sob a Direção do Marquês de Sade'*//*
     [self insertDataIntoDataBaseWithTitle:@"Esses Homens Maravilhosos e suas máquinas Voadoras" WithYear:@"1965" WithRating:@"4.12" WithSinopse:@"Um Filme bem Idiota com Atores bem idiotas, na verdade não sei como encontrei esse filme!" WithPoster:@"esses_homens_maravilhosos_e_suas_maquinas_voadoras.jpg"];
 */
 }
