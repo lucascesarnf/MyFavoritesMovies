@@ -15,6 +15,7 @@
 		CA60377B1E172F9D0051769A /* frozen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA6037781E172F9D0051769A /* frozen.jpg */; };
 		CA60377C1E172F9D0051769A /* starwars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA6037791E172F9D0051769A /* starwars.jpg */; };
 		CA6037801E172FF60051769A /* Favorites.m in Sources */ = {isa = PBXBuildFile; fileRef = CA60377F1E172FF60051769A /* Favorites.m */; };
+		CA8E90B51E1E9A3A007506C3 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8E90B41E1E9A3A007506C3 /* SearchViewController.m */; };
 		CA9988901E1A7BF800B7D8F7 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA99888F1E1A7BF800B7D8F7 /* InformationViewController.m */; };
 		CA9988921E1AB56C00B7D8F7 /* titanic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA9988911E1AB56C00B7D8F7 /* titanic.jpg */; };
 		CAAD35D41E172B7900771A17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD35D31E172B7900771A17 /* main.m */; };
@@ -63,6 +64,8 @@
 		CA6037791E172F9D0051769A /* starwars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = starwars.jpg; sourceTree = "<group>"; };
 		CA60377E1E172FF60051769A /* Favorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorites.h; sourceTree = "<group>"; };
 		CA60377F1E172FF60051769A /* Favorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorites.m; sourceTree = "<group>"; };
+		CA8E90B31E1E9A3A007506C3 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		CA8E90B41E1E9A3A007506C3 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		CA99888E1E1A7BF800B7D8F7 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		CA99888F1E1A7BF800B7D8F7 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		CA9988911E1AB56C00B7D8F7 /* titanic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = titanic.jpg; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				CA99888F1E1A7BF800B7D8F7 /* InformationViewController.m */,
 				CA6037701E172D3C0051769A /* MovieViewController.h */,
 				CA6037711E172D3C0051769A /* MovieViewController.m */,
+				CA8E90B31E1E9A3A007506C3 /* SearchViewController.h */,
+				CA8E90B41E1E9A3A007506C3 /* SearchViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -526,6 +531,7 @@
 				CA9988901E1A7BF800B7D8F7 /* InformationViewController.m in Sources */,
 				CA6037801E172FF60051769A /* Favorites.m in Sources */,
 				CAAD35D41E172B7900771A17 /* main.m in Sources */,
+				CA8E90B51E1E9A3A007506C3 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S3d-pv-NQN" id="Nhe-Kq-KFP">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="143"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="144"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPi-Ne-PTb">
@@ -134,7 +134,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ma-nh-2sY" id="572-FS-eRg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjs-qH-Yzh">
@@ -181,7 +181,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1j-X0-5bm">
-                                                    <rect key="frame" x="40" y="10" width="295" height="289"/>
+                                                    <rect key="frame" x="40" y="8" width="294" height="290"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cqq-X4-Gt7">
@@ -232,7 +232,7 @@
         <!--Add Movie-->
         <scene sceneID="SN2-Gx-EJy">
             <objects>
-                <tableViewController id="BdZ-3r-eTf" sceneMemberID="viewController">
+                <tableViewController id="BdZ-3r-eTf" customClass="SearchViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZCN-Re-Ezg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,7 +250,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hfi-dM-tFq" id="acc-yX-tzs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -263,18 +263,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Movie" id="cEV-Jr-i2t"/>
                     <connections>
+                        <outlet property="mSearchBar" destination="u0x-9e-PUL" id="XKh-e5-ThA"/>
+                        <outlet property="mTableView" destination="ZCN-Re-Ezg" id="N5d-ko-Af3"/>
                         <outlet property="searchDisplayController" destination="bPb-YA-hEb" id="l6m-fo-UZy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00p-mp-vXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="LzE-yG-HPX">
-                    <connections>
-                        <outlet property="delegate" destination="BdZ-3r-eTf" id="0Se-8H-ccd"/>
-                        <outlet property="searchContentsController" destination="BdZ-3r-eTf" id="VlF-u9-TSm"/>
-                        <outlet property="searchResultsDataSource" destination="BdZ-3r-eTf" id="dpq-Hf-EcM"/>
-                        <outlet property="searchResultsDelegate" destination="BdZ-3r-eTf" id="6uj-ua-tiE"/>
-                    </connections>
-                </searchDisplayController>
                 <searchDisplayController id="bPb-YA-hEb">
                     <connections>
                         <outlet property="delegate" destination="BdZ-3r-eTf" id="uvO-jG-4L4"/>
