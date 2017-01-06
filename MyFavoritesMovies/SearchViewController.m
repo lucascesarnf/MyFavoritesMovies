@@ -17,38 +17,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-return 0;
+return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 0;
+    /*if (self.movies && self.movies.count) {
+        return self.movies.count;
+    } else {
+        return 0;
+    }*/
+    return [[self.movies allKeys] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellID = @"MovieCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+    }
+    return cell;
 }
 -(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    
+    //Network:
     NSString *link = [NSString stringWithFormat:@"https://www.omdbapi.com/?s=%@&y=&plot=short&r=json",searchBar.text];
     NSURL *URL = [NSURL URLWithString:link];
-    /*
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-     }];*/
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
@@ -57,22 +59,16 @@ return 0;
         if (error) {
             NSLog(@"Error: %@", error);
         } else {
-              // self.movies = [responseObject objectForKey:@"Search"];
-            NSLog(@"\n\nResponse:\n%@\n\nObjects:\n %@", response, responseObject);
+            
+            self.movies = [[NSDictionary alloc] initWithDictionary:responseObject];
+            NSLog(@"\n\nMovies:%@", self.movies);
+            NSLog(@"\n\nSize:%lu", [[self.movies allKeys] count]);
         }
     }];
     [dataTask resume];
-    NSLog(@"\n\nMovies:%@", self.movies);
 }
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="667" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S3d-pv-NQN" id="Nhe-Kq-KFP">
-                                    <rect key="frame" x="0.0" y="0.0" width="634" height="143.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="634" height="144"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPi-Ne-PTb">
@@ -134,7 +134,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="667" height="672"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ma-nh-2sY" id="572-FS-eRg">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="671.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="672"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjs-qH-Yzh">
@@ -301,7 +301,7 @@
         <scene sceneID="XPa-PJ-7Rc">
             <objects>
                 <navigationController id="AJx-5U-CUd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ads-F5-xnd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ads-F5-xnd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
