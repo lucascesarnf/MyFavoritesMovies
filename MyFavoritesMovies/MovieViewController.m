@@ -55,7 +55,6 @@
     Favorites *information = [tableDataArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = information.title;
     cell.yearLabel.text=information.year;
-    cell.ratingLabel.text=information.rating;
     cell.posterImageView.image = [UIImage imageNamed:information.poster];
     if(indexPath.row%2==0){
     cell.backgroundColor=[UIColor lightGrayColor];

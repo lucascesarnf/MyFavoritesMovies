@@ -8,7 +8,7 @@
 #import "Movie.h"
 #import "SearchViewController.h"
 #import <AFNetworking.h>
-
+#import "MovieCell.h"
 @interface SearchViewController ()
 
 @end
@@ -29,7 +29,8 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-return 1;
+    
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -42,19 +43,21 @@ return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if(movies.count==0){
-    
+    if(movies.count == 0){
+        
     }
-    static NSString *cellID = @"MovieCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    }
+    MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     Movie *movi=(Movie *)[movies objectAtIndex:indexPath.row];
-    cell.textLabel.text = movi.title;
-    cell.detailTextLabel.text = movi.year;
+    cell.titleLabel.text = movi.title;
+    cell.yearLabel.text=movi.year;
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:movi.moviePosterURL]];
+    cell.posterImageView.image = [UIImage imageWithData: imageData];
+    if(indexPath.row%2==0){
+        cell.backgroundColor=[UIColor lightGrayColor];
+        cell.backgroundColor = [cell.backgroundColor colorWithAlphaComponent:0.2];
+    }else{
+        cell.backgroundColor=[UIColor whiteColor];
+    }
     return cell;
 }
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
@@ -85,10 +88,17 @@ return 1;
             
             NSLog(@"\n\nMovies:%@", self.movies);
             //reload your tableview data
-            
             [_mTableView reloadData];
             [_hud hideAnimated:NO];
             [_hud showAnimated:NO];
+            if(movies.count == 0){
+                UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _mTableView.bounds.size.width, _mTableView.bounds.size.height)];
+                noDataLabel.text             = @"No results";
+                noDataLabel.textColor        = [UIColor blackColor];
+                noDataLabel.textAlignment    = NSTextAlignmentCenter;
+                _mTableView.backgroundView = noDataLabel;
+                _mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            }
             //self.movies = [[NSDictionary alloc] initWithDictionary:responseObject];
             //NSLog(@"\n\nMovies:%@", self.movies);
             //NSLog(@"\n\nSize:%lu", [[self.movies allKeys] count]);
