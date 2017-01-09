@@ -5,9 +5,10 @@
 //  Created by Lucas César  Nogueira Fonseca on 05/01/17.
 //  Copyright © 2017 Lucas César  Nogueira Fonseca. All rights reserved.
 //
-
+#import "Movie.h"
 #import "SearchViewController.h"
 #import <AFNetworking.h>
+
 @interface SearchViewController ()
 
 @end
@@ -35,7 +36,7 @@ return 1;
     } else {
         return 0;
     }*/
-    return [[self.movies allKeys] count];
+    return self.movies.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -45,6 +46,9 @@ return 1;
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
+    Movie *movi=(Movie *)[movies objectAtIndex:indexPath.row];
+    cell.textLabel.text = movi.title;
+    cell.detailTextLabel.text = movi.year;
     return cell;
 }
 -(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
@@ -60,9 +64,20 @@ return 1;
             NSLog(@"Error: %@", error);
         } else {
             
-            self.movies = [[NSDictionary alloc] initWithDictionary:responseObject];
+            movies=[[NSMutableArray alloc]init];
+            NSDictionary *resultDictinary = [responseObject objectForKey:@"Search"];
+            for (NSDictionary *userDictionary in resultDictinary)
+            {
+                Movie *newUSer=[[Movie alloc]initWithDictionary:userDictionary];
+                [movies addObject:newUSer];
+            }
+            
             NSLog(@"\n\nMovies:%@", self.movies);
-            NSLog(@"\n\nSize:%lu", [[self.movies allKeys] count]);
+            //reload your tableview data
+            [_mTableView reloadData];
+            //self.movies = [[NSDictionary alloc] initWithDictionary:responseObject];
+            //NSLog(@"\n\nMovies:%@", self.movies);
+            //NSLog(@"\n\nSize:%lu", [[self.movies allKeys] count]);
         }
     }];
     [dataTask resume];
