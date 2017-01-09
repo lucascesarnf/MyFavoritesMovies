@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SearchViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate, UISearchBarDelegate>
-@property (strong, nonatomic) IBOutlet UITableView *mTableView;
+#import <MBProgressHUD.h>
+@interface SearchViewController : UITableViewController <UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *mSearchBar;
+@property (strong, nonatomic) IBOutlet UITableView *mTableView;
 @property (nonatomic, retain) NSMutableArray *movies;
+@property (nonatomic, retain) MBProgressHUD *hud;
 
 
 @end

@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _mSearchBar.delegate = self;
+    movies = [NSMutableArray arrayWithCapacity:10];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,10 +38,14 @@ return 1;
     } else {
         return 0;
     }*/
-    return self.movies.count;
+    return [self.movies count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if(movies.count==0){
+    
+    }
     static NSString *cellID = @"MovieCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
@@ -51,6 +57,51 @@ return 1;
     cell.detailTextLabel.text = movi.year;
     return cell;
 }
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    NSString *str = [searchBar.text stringByReplacingOccurrencesOfString:@" "
+                                         withString:@"+"];
+    NSLog(@"\n\nString New:%@",str);
+    //Network:
+    
+    NSString *link = [NSString stringWithFormat:@"https://www.omdbapi.com/?s=%@&y=&plot=short&r=json",str];
+    NSURL *URL = [NSURL URLWithString:link];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            
+            movies=[[NSMutableArray alloc]init];
+            NSDictionary *resultDictinary = [responseObject objectForKey:@"Search"];
+            for (NSDictionary *userDictionary in resultDictinary)
+            {
+                Movie *newUSer=[[Movie alloc]initWithDictionary:userDictionary];
+                [movies addObject:newUSer];
+            }
+            
+            NSLog(@"\n\nMovies:%@", self.movies);
+            //reload your tableview data
+            
+            [_mTableView reloadData];
+            [_hud hideAnimated:NO];
+            [_hud showAnimated:NO];
+            //self.movies = [[NSDictionary alloc] initWithDictionary:responseObject];
+            //NSLog(@"\n\nMovies:%@", self.movies);
+            //NSLog(@"\n\nSize:%lu", [[self.movies allKeys] count]);
+        }
+    }];
+    _hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    _hud.label.text = @"Loading";
+    [_hud hideAnimated:YES];
+    [_hud showAnimated:YES];
+    [dataTask resume];
+    
+}
+/*
 -(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
     //Network:
     NSString *link = [NSString stringWithFormat:@"https://www.omdbapi.com/?s=%@&y=&plot=short&r=json",searchBar.text];
@@ -81,7 +132,7 @@ return 1;
         }
     }];
     [dataTask resume];
-}
+}*/
 
 
 

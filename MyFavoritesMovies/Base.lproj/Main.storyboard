@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S3d-pv-NQN" id="Nhe-Kq-KFP">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="144"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPi-Ne-PTb">
@@ -134,7 +134,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ma-nh-2sY" id="572-FS-eRg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjs-qH-Yzh">
@@ -181,7 +181,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1j-X0-5bm">
-                                                    <rect key="frame" x="39" y="6" width="294" height="290"/>
+                                                    <rect key="frame" x="38" y="6" width="294" height="287"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cqq-X4-Gt7">
@@ -237,31 +237,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="u0x-9e-PUL">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="oLH-ia-1kY">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="BdZ-3r-eTf" id="xtS-WB-3Wq"/>
-                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" textLabel="XIk-mK-UWA" detailTextLabel="tr4-SK-UwS" style="IBUITableViewCellStyleSubtitle" id="hfi-dM-tFq">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hfi-dM-tFq" id="acc-yX-tzs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XIk-mK-UWA">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tr4-SK-UwS">
-                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -279,7 +276,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Movie" id="cEV-Jr-i2t"/>
                     <connections>
-                        <outlet property="mSearchBar" destination="u0x-9e-PUL" id="XKh-e5-ThA"/>
+                        <outlet property="mSearchBar" destination="oLH-ia-1kY" id="AeH-Iv-lzQ"/>
                         <outlet property="mTableView" destination="ZCN-Re-Ezg" id="N5d-ko-Af3"/>
                         <outlet property="searchDisplayController" destination="bPb-YA-hEb" id="qAN-PJ-PGE"/>
                     </connections>
@@ -288,7 +285,6 @@
                 <searchDisplayController id="bPb-YA-hEb">
                     <connections>
                         <outlet property="delegate" destination="BdZ-3r-eTf" id="uvO-jG-4L4"/>
-                        <outlet property="searchBar" destination="u0x-9e-PUL" id="uoK-6F-f8H"/>
                         <outlet property="searchContentsController" destination="BdZ-3r-eTf" id="B7I-zq-DVW"/>
                         <outlet property="searchResultsDataSource" destination="BdZ-3r-eTf" id="2ZE-Rn-fZU"/>
                         <outlet property="searchResultsDelegate" destination="BdZ-3r-eTf" id="yvJ-r1-dle"/>
