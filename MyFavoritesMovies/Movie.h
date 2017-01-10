@@ -11,17 +11,16 @@
 @interface Movie : NSObject
 {
     NSString *title;
-    NSString *year;
-    NSString *rating;
-    NSString *shortSynopsis;
-    NSString *fullSynopsis;
-    NSString *moviePosterURL;
-    NSString *actors;
-    NSString *director;
-    NSString *genre;
-    NSString *rated;
-    NSString *runtime;
-    UIImage *moviePoster;
+   NSString *year;
+   NSString *rating;
+   NSString *moviePosterURL;
+   NSString *actors;
+   NSString *director;
+   NSString *genre;
+   NSString *synopsis;
+   NSString *runtime;
+   UIImage *moviePoster;
+   NSString *imdbid;
     
 }
 

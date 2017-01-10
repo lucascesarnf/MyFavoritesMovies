@@ -11,8 +11,11 @@
 #import <MBProgressHUD.h>
 @interface DetailsViewController : UITableViewController
 @property (nonatomic, strong) NSString *imdbid;
+@property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
 @property (weak, nonatomic) IBOutlet UITextView *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextView *synopsisLabel;
 @property (weak, nonatomic) IBOutlet UILabel *yearLabel;
+@property (weak, nonatomic) IBOutlet UITextView *actorsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *runtimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *genreLabel;

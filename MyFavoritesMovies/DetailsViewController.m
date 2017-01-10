@@ -38,6 +38,8 @@
                 Movie *newUSer=[[Movie alloc]initWithDictionary:movieDictionary];
                 [movies addObject:newUSer];
             }*/
+            [_hud hideAnimated:YES];
+            [_hud showAnimated:YES];
             movie = [[Movie alloc]initWithDictionary:responseObject];
             NSLog(@"\n\nMovies:%@", self.movie);
             self.titleLabel.text = self.movie.title;
@@ -46,6 +48,16 @@
             self.ratingLabel.text = self.movie.rating;
             self.genreLabel.text = self.movie.genre;
             self.directorLabel.text = self.movie.director;
+            self.actorsLabel.text = self.movie.actors;
+            self.synopsisLabel.text = self.movie.synopsis;
+            if([self.movie.moviePosterURL isEqualToString:@"N/A"]){
+                self.posterImageView.image = [UIImage imageNamed:@"not-found.png"];
+            }else{
+                NSString *str = [self.movie.moviePosterURL stringByReplacingOccurrencesOfString:@"http:"
+                                                                                     withString:@"https:"];
+                NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:str]];
+                self.posterImageView.image = [UIImage imageWithData: imageData];
+            }
             //reload your tableview data
             [_hud hideAnimated:NO];
             [_hud showAnimated:NO];
