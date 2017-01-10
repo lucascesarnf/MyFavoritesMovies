@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    tableDataArray=[Favorites allObjects];
+    tableDataArray=[RLMMovie allObjects];
     [_mTableView reloadData];
 /*
     [self insertDataIntoDataBaseWithTitle:@"Batman" WithYear:@"1999" WithRating:@"7" WithSinopse:@"Eu sou o Batman" WithPoster:@"batman.jpg"];
@@ -42,7 +42,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    NSInteger numOfSections = 0;
+    if ([tableDataArray count] > 0)
+    {
+        _mTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        numOfSections                = 1;
+        _mTableView.backgroundView = nil;
+    }
+    else
+    {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _mTableView.bounds.size.width, _mTableView.bounds.size.height)];
+        noDataLabel.text             = @"Please add Favorites";
+        noDataLabel.textColor        = [UIColor blackColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        _mTableView.backgroundView = noDataLabel;
+        _mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    
+    return numOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -124,7 +141,7 @@ RLMRealm *realm = [RLMRealm defaultRealm];
     
     }
 }
-
+/*
 -(void)insertDataIntoDataBaseWithTitle:(NSString *)title WithYear:(NSString *)year WithRating:(NSString *)rating WithSinopse:(NSString *)sinopse WithPoster:(NSString *)poster
 {
     RLMRealm *realm = [RLMRealm defaultRealm];
@@ -139,5 +156,5 @@ RLMRealm *realm = [RLMRealm defaultRealm];
     [realm commitWriteTransaction];
      [_mTableView reloadData];
 }
-
+*/
 @end

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A3BE3ED6B1A4C8CAD4F78504 /* libPods-MyFavoritesMoviesUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 781FA33FADDDAB16F092F258 /* libPods-MyFavoritesMoviesUITests.a */; };
 		A4A98FE68AF487DA5FB1C7AE /* libPods-MyFavoritesMoviesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FD34DA60862F5EF3D94FAF /* libPods-MyFavoritesMoviesTests.a */; };
+		CA20F8A91E251455005D9D91 /* RLMMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20F8A81E251455005D9D91 /* RLMMovie.m */; };
+		CA20F8AC1E251660005D9D91 /* RLMController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20F8AB1E251660005D9D91 /* RLMController.m */; };
 		CA6037721E172D3C0051769A /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6037711E172D3C0051769A /* MovieViewController.m */; };
 		CA6037751E172DAA0051769A /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6037741E172DAA0051769A /* MovieCell.m */; };
 		CA60377A1E172F9D0051769A /* batman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA6037771E172F9D0051769A /* batman.jpg */; };
@@ -58,6 +60,10 @@
 		BEFEB00668D24A8B3F776463 /* Pods-MyFavoritesMoviesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFavoritesMoviesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFavoritesMoviesUITests/Pods-MyFavoritesMoviesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C17ED7AC2B3AC225992FBDCB /* Pods-MyFavoritesMoviesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFavoritesMoviesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFavoritesMoviesTests/Pods-MyFavoritesMoviesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4A20FC706CC0711114DAE49 /* Pods-MyFavoritesMoviesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFavoritesMoviesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFavoritesMoviesUITests/Pods-MyFavoritesMoviesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CA20F8A71E251455005D9D91 /* RLMMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLMMovie.h; sourceTree = "<group>"; };
+		CA20F8A81E251455005D9D91 /* RLMMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLMMovie.m; sourceTree = "<group>"; };
+		CA20F8AA1E251660005D9D91 /* RLMController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLMController.h; sourceTree = "<group>"; };
+		CA20F8AB1E251660005D9D91 /* RLMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLMController.m; sourceTree = "<group>"; };
 		CA6037701E172D3C0051769A /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
 		CA6037711E172D3C0051769A /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
 		CA6037731E172DAA0051769A /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
@@ -157,6 +163,8 @@
 				CA8E90B41E1E9A3A007506C3 /* SearchViewController.m */,
 				CAFC70E71E244001005DD92E /* DetailsViewController.h */,
 				CAFC70E81E244001005DD92E /* DetailsViewController.m */,
+				CA20F8AA1E251660005D9D91 /* RLMController.h */,
+				CA20F8AB1E251660005D9D91 /* RLMController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -183,6 +191,8 @@
 				CA6037731E172DAA0051769A /* MovieCell.h */,
 				CA6702301E23DF3100D232F4 /* Movie.h */,
 				CA6702311E23DF3100D232F4 /* Movie.m */,
+				CA20F8A71E251455005D9D91 /* RLMMovie.h */,
+				CA20F8A81E251455005D9D91 /* RLMMovie.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -539,10 +549,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA20F8AC1E251660005D9D91 /* RLMController.m in Sources */,
 				CAAD35D71E172B7900771A17 /* AppDelegate.m in Sources */,
 				CA6037721E172D3C0051769A /* MovieViewController.m in Sources */,
 				CA6702321E23DF3100D232F4 /* Movie.m in Sources */,
 				CA6037751E172DAA0051769A /* MovieCell.m in Sources */,
+				CA20F8A91E251455005D9D91 /* RLMMovie.m in Sources */,
 				CA9988901E1A7BF800B7D8F7 /* InformationViewController.m in Sources */,
 				CA6037801E172FF60051769A /* Favorites.m in Sources */,
 				CAFC70E91E244001005DD92E /* DetailsViewController.m in Sources */,

@@ -14,5 +14,4 @@
 @property NSString *rating;
 @property NSString *sinopse;
 @property NSString *poster;
-
 @end

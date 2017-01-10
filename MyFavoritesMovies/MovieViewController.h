@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "Favorites.h"
+#import "RLMMovie.h"
 @interface MovieViewController : UITableViewController
 {
     RLMResults *tableDataArray;
-    Favorites *selectedDataObject;
+    RLMMovie *selectedDataObject;
+    
+    //RLMResults *tableDataArray;
+    //Favorites *selectedDataObject;
 }
 @property (strong, nonatomic) IBOutlet UITableView *mTableView;
 - (IBAction)deleteMovie;
-
 @end
