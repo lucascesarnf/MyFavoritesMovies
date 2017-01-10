@@ -9,7 +9,7 @@
 #import "Movie.h"
 
 @implementation Movie
-@synthesize title,year,rating,shortSynopsis,fullSynopsis,moviePoster,moviePosterURL,actors,director,genre,rated,runtime;
+@synthesize title,year,rating,moviePoster,moviePosterURL,actors,director,genre,synopsis,runtime;
 
 
 -(id)initWithDictionary:(NSDictionary *)sourceDictionary
@@ -23,10 +23,10 @@
         self.actors            = [sourceDictionary objectForKey:@"Actors"];
         self.director          = [sourceDictionary objectForKey:@"Director"];
         self.genre             = [sourceDictionary objectForKey:@"Genre"];
-        self.rated             = [sourceDictionary objectForKey:@"Rated"];
         self.runtime           = [sourceDictionary objectForKey:@"Runtime"];
-        self.rating            = [sourceDictionary objectForKey:@"Rating"];
-        self.shortSynopsis     = [sourceDictionary objectForKey:@"Runtime"];
+        self.rating            = [sourceDictionary objectForKey:@"imdbRating"];
+        self.synopsis          = [sourceDictionary objectForKey:@"Plot"];
+        self.imdbid            = [sourceDictionary objectForKey:@"imdbID"];
     }
     return self;
     

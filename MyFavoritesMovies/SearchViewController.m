@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import <AFNetworking.h>
 #import "MovieCell.h"
+#import "DetailsViewController.h"
 @interface SearchViewController ()
 
 @end
@@ -50,8 +51,14 @@
     Movie *movi=(Movie *)[movies objectAtIndex:indexPath.row];
     cell.titleLabel.text = movi.title;
     cell.yearLabel.text=movi.year;
-    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:movi.moviePosterURL]];
+    if([movi.moviePosterURL isEqualToString:@"N/A"]){
+        cell.posterImageView.image = [UIImage imageNamed:@"not-found.png"];
+    }else{
+    NSString *str = [movi.moviePosterURL stringByReplacingOccurrencesOfString:@"http:"
+                                                              withString:@"https:"];
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:str]];
     cell.posterImageView.image = [UIImage imageWithData: imageData];
+    }
     if(indexPath.row%2==0){
         cell.backgroundColor=[UIColor lightGrayColor];
         cell.backgroundColor = [cell.backgroundColor colorWithAlphaComponent:0.2];
@@ -77,12 +84,12 @@
         if (error) {
             NSLog(@"Error: %@", error);
         } else {
-            
+            NSLog(@"\n\nMovies:%@", responseObject);
             movies=[[NSMutableArray alloc]init];
             NSDictionary *resultDictinary = [responseObject objectForKey:@"Search"];
-            for (NSDictionary *userDictionary in resultDictinary)
+            for (NSDictionary *movieDictionary in resultDictinary)
             {
-                Movie *newUSer=[[Movie alloc]initWithDictionary:userDictionary];
+                Movie *newUSer=[[Movie alloc]initWithDictionary:movieDictionary];
                 [movies addObject:newUSer];
             }
             
@@ -110,6 +117,15 @@
     [_hud showAnimated:YES];
     [dataTask resume];
     
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"ShowDetails"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        DetailsViewController *destViewController = segue.destinationViewController;
+        Movie *movi=(Movie *)[movies objectAtIndex:indexPath.row];
+        destViewController.imdbid = movi.imdbid;
+        
+    }
 }
 /*
 -(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
