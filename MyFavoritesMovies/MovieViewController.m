@@ -69,10 +69,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
-    Favorites *information = [tableDataArray objectAtIndex:indexPath.row];
+    RLMMovie *information = [tableDataArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = information.title;
     cell.yearLabel.text=information.year;
-    cell.posterImageView.image = [UIImage imageNamed:information.poster];
+    cell.posterImageView.image = [UIImage imageWithData:information.moviePoster];
     if(indexPath.row%2==0){
     cell.backgroundColor=[UIColor lightGrayColor];
     cell.backgroundColor = [cell.backgroundColor colorWithAlphaComponent:0.2];
@@ -118,7 +118,7 @@
 */
 - (IBAction)deleteMovie{
 NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-Favorites *information = [tableDataArray objectAtIndex:indexPath.row];
+RLMMovie *information = [tableDataArray objectAtIndex:indexPath.row];
 RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
     [realm deleteObject:information];
@@ -131,14 +131,17 @@ RLMRealm *realm = [RLMRealm defaultRealm];
     if ([segue.identifier isEqualToString:@"movieInformation"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         InformationViewController *destViewController = segue.destinationViewController;
-        Favorites *information = [tableDataArray objectAtIndex:indexPath.row];
+        RLMMovie *information = [tableDataArray objectAtIndex:indexPath.row];
         destViewController.title = information.title;
         destViewController.year = information.year;
         destViewController.rating = information.rating;
-        destViewController.sinopse = information.sinopse;
-        destViewController.poster = information.poster;
+        destViewController.moviePoster = information.moviePoster;
+        destViewController.actors = information.actors;
+        destViewController.director = information.director;
+        destViewController.genre = information.genre;
+        destViewController.synopsis = information.synopsis;
+        destViewController.runtime = information.runtime;
         destViewController.father = self;
-    
     }
 }
 /*

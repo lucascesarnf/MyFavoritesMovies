@@ -9,8 +9,7 @@
 #import "Movie.h"
 
 @implementation Movie
-@synthesize title,year,rating,moviePosterURL,actors,director,genre,synopsis,runtime,imdbid;
-
+@synthesize title,year,rating,moviePosterURL,actors,director,genre,synopsis,runtime,imdbid,moviePoster;
 
 -(id)initWithDictionary:(NSDictionary *)sourceDictionary
 {

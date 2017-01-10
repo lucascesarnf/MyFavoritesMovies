@@ -16,17 +16,25 @@
 @synthesize title;
 @synthesize year;
 @synthesize rating;
-@synthesize sinopse;
-@synthesize poster;
+@synthesize moviePosterURL;
+@synthesize actors;
+@synthesize director;
+@synthesize genre;
+@synthesize synopsis;
+@synthesize runtime;
+@synthesize moviePoster;
+@synthesize imdbid;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _sinopseLabel.editable = NO;
-    _titleLabel.editable= NO;
     _titleLabel.text = title;
     _yearLabel.text = year;
     _ratingLabel.text = rating;
-    _sinopseLabel.text = sinopse;
-    _posterImageView.image = [UIImage imageNamed:poster];
+    _posterImageView.image =[UIImage imageWithData: moviePoster];;
+    _actorsLabel.text =actors;
+    _directorLabel.text = director;
+    _genreLabel.text= genre;
+    _synopsisLabel.text =synopsis;
+    _runtimeLabel.text = runtime;
 }
 
 - (void)didReceiveMemoryWarning {

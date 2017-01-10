@@ -19,7 +19,7 @@
    NSString *genre;
    NSString *synopsis;
    NSString *runtime;
-   UIImage *moviePoster;
+   NSData *moviePoster;
    NSString *imdbid;
     
 }
@@ -33,7 +33,7 @@
 @property (nonatomic, copy) NSString *genre;
 @property (nonatomic, copy) NSString *synopsis;
 @property (nonatomic, copy) NSString *runtime;
-@property (nonatomic, copy) UIImage *moviePoster;
+@property (nonatomic, copy) NSData *moviePoster;
 @property (nonatomic, copy) NSString *imdbid;
 //@property (nonatomic, copy) NSData *moviePosterData;
 

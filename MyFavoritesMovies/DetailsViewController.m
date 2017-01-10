@@ -10,6 +10,7 @@
 #import "Movie.h"
 #import <AFNetworking.h>
 #import "DetailsViewController.h"
+#import "RLMMovie.h"
 @interface DetailsViewController ()
 
 @end
@@ -55,8 +56,8 @@
             }else{
                 NSString *str = [self.movie.moviePosterURL stringByReplacingOccurrencesOfString:@"http:"
                                                                                      withString:@"https:"];
-                NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:str]];
-                self.posterImageView.image = [UIImage imageWithData: imageData];
+                self.movie.moviePoster = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:str]];
+                self.posterImageView.image = [UIImage imageWithData: self.movie.moviePoster ];
             }
             //reload your tableview data
             [_hud hideAnimated:NO];
@@ -145,4 +146,43 @@
 }
 */
 
+- (IBAction)favorite:(id)sender {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"ADD Movie"
+                                  message:@"You want add the movie?"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* add = [UIAlertAction actionWithTitle:@"ADD" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       RLMRealm *realm = [RLMRealm defaultRealm];
+                                                       [realm beginWriteTransaction];
+                                                       RLMMovie *information = [[RLMMovie alloc] init];
+                                                       information.title=movie.title;
+                                                       information.year=movie.year;
+                                                       information.rating=movie.rating;
+                                                       information.synopsis=movie.synopsis;
+                                                       information.moviePosterURL=movie.moviePosterURL;
+                                                       information.actors=movie.actors;
+                                                       information.director=movie.director;
+                                                       information.genre=movie.genre;
+                                                       information.runtime=movie.runtime;
+                                                       information.imdbid=movie.imdbid;
+                                                       information.moviePoster = movie.moviePoster;
+                                                       [realm addObject:information];
+                                                       [realm commitWriteTransaction];
+                                                       [self back];
+                                                   }];
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+    
+    [alert addAction:cancel];
+    [alert addAction:add];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+-(void) back{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

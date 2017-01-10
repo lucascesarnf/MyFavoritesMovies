@@ -17,9 +17,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *yearLabel;
 @property (weak, nonatomic) IBOutlet UITextView *actorsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *runtimeLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *genreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *directorLabel;
 @property (nonatomic,strong)Movie *movie;
 @property (nonatomic, retain) MBProgressHUD *hud;
+- (IBAction)favorite:(id)sender;
 @end
