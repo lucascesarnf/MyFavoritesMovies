@@ -15,28 +15,17 @@
 @end
 
 @implementation MovieViewController
-
+-(void)viewDidAppear:(BOOL)animated{
+     [_mTableView reloadData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     tableDataArray=[RLMMovie allObjects];
     [_mTableView reloadData];
-/*
-    [self insertDataIntoDataBaseWithTitle:@"Batman" WithYear:@"1999" WithRating:@"7" WithSinopse:@"Eu sou o Batman" WithPoster:@"batman.jpg"];
-    
-    [self insertDataIntoDataBaseWithTitle:@"Frozen" WithYear:@"2016" WithRating:@"4" WithSinopse:@"Você quer brincar na neve? Um boneco quer fazer?" WithPoster:@"frozen.jpg"];
- esses_homens_maravilhosos_e_suas_maquinas_voadoras
-    
-    [self insertDataIntoDataBaseWithTitle:@"Star Wars" WithYear:@"1897" WithRating:@"10" WithSinopse:@"A long Time Ago" WithPoster:@"starwars.jpg"];
-     
-    [self insertDataIntoDataBaseWithTitle:@"Titanic" WithYear:@"1997" WithRating:@"7.7" WithSinopse:@"A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.1500 people were on the ship, some first class, others restrained to the lower decks where windows were limited. Either way, the passengers on board the Titanic held high hopes, not because it was deemed 'the unsinkable ship' but because they were leaving their past behind them and preparing for a new life in America." WithPoster:@"titanic.jpg"];
- /*A Perseguição e o Assassinato de Jen-Paul Marat Desempenhados Pelos Loucos do Asilo de Charenton Sob a Direção do Marquês de Sade'*//*
-    [self insertDataIntoDataBaseWithTitle:@"Esses Homens Maravilhosos e suas máquinas Voadoras" WithYear:@"1965" WithRating:@"4.12" WithSinopse:@"Um Filme bem Idiota com Atores bem idiotas, na verdade não sei como encontrei esse filme!" WithPoster:@"esses_homens_maravilhosos_e_suas_maquinas_voadoras.jpg"];
-*/
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -82,40 +71,6 @@
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 - (IBAction)deleteMovie{
 NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 RLMMovie *information = [tableDataArray objectAtIndex:indexPath.row];
@@ -126,7 +81,6 @@ RLMRealm *realm = [RLMRealm defaultRealm];
     [_mTableView reloadData];
 }
 #pragma mark - Navigation
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"movieInformation"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -144,20 +98,4 @@ RLMRealm *realm = [RLMRealm defaultRealm];
         destViewController.father = self;
     }
 }
-/*
--(void)insertDataIntoDataBaseWithTitle:(NSString *)title WithYear:(NSString *)year WithRating:(NSString *)rating WithSinopse:(NSString *)sinopse WithPoster:(NSString *)poster
-{
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    Favorites *information = [[Favorites alloc] init];
-    information.title=title;
-    information.year=year;
-    information.rating=rating;
-    information.sinopse=sinopse;
-    information.poster=poster;
-    [realm addObject:information];
-    [realm commitWriteTransaction];
-     [_mTableView reloadData];
-}
-*/
 @end

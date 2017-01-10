@@ -10,6 +10,7 @@
 #import <AFNetworking.h>
 #import "MovieCell.h"
 #import "DetailsViewController.h"
+#import "MovieViewController.h"
 @interface SearchViewController ()
 
 @end
@@ -94,10 +95,6 @@
             }
             
             NSLog(@"\n\nMovies:%@", self.movies);
-            //reload your tableview data
-            [_mTableView reloadData];
-            [_hud hideAnimated:NO];
-            [_hud showAnimated:NO];
             if(movies.count == 0){
                 UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _mTableView.bounds.size.width, _mTableView.bounds.size.height)];
                 noDataLabel.text             = @"No results";
@@ -106,9 +103,9 @@
                 _mTableView.backgroundView = noDataLabel;
                 _mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             }
-            //self.movies = [[NSDictionary alloc] initWithDictionary:responseObject];
-            //NSLog(@"\n\nMovies:%@", self.movies);
-            //NSLog(@"\n\nSize:%lu", [[self.movies allKeys] count]);
+            [_mTableView reloadData];
+            [_hud hideAnimated:NO];
+            [_hud showAnimated:NO];
         }
     }];
     _hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
@@ -126,84 +123,9 @@
         destViewController.imdbid = movi.imdbid;
         
     }
-}
-/*
--(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    //Network:
-    NSString *link = [NSString stringWithFormat:@"https://www.omdbapi.com/?s=%@&y=&plot=short&r=json",searchBar.text];
-    NSURL *URL = [NSURL URLWithString:link];
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else {
-            
-            movies=[[NSMutableArray alloc]init];
-            NSDictionary *resultDictinary = [responseObject objectForKey:@"Search"];
-            for (NSDictionary *userDictionary in resultDictinary)
-            {
-                Movie *newUSer=[[Movie alloc]initWithDictionary:userDictionary];
-                [movies addObject:newUSer];
-            }
-            
-            NSLog(@"\n\nMovies:%@", self.movies);
-            //reload your tableview data
-            [_mTableView reloadData];
-            //self.movies = [[NSDictionary alloc] initWithDictionary:responseObject];
-            //NSLog(@"\n\nMovies:%@", self.movies);
-            //NSLog(@"\n\nSize:%lu", [[self.movies allKeys] count]);
+        if ([segue.identifier isEqualToString:@"searchMovie"]) {
+            MovieViewController *destViewController = segue.destinationViewController;
+            [destViewController.mTableView reloadData];
         }
-    }];
-    [dataTask resume];
-}*/
-
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

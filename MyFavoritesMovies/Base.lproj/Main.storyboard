@@ -90,7 +90,7 @@
                     <navigationItem key="navigationItem" title="Favorites" id="aNV-nd-anD">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="QrC-XH-ntV">
                             <connections>
-                                <segue destination="BdZ-3r-eTf" kind="show" id="4Yd-Ui-9Bs"/>
+                                <segue destination="BdZ-3r-eTf" kind="show" identifier="searchMovie" id="4Yd-Ui-9Bs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -32,13 +32,6 @@
         if (error) {
             NSLog(@"Error: %@", error);
         } else {
-           // NSLog(@"\n\nMovies:%@", responseObject);
-           // NSDictionary *resultDictinary = [responseObject objectForKey:@"Search"];
-            /*for (NSDictionary *movieDictionary in resultDictinary)
-            {
-                Movie *newUSer=[[Movie alloc]initWithDictionary:movieDictionary];
-                [movies addObject:newUSer];
-            }*/
             [_hud hideAnimated:YES];
             [_hud showAnimated:YES];
             movie = [[Movie alloc]initWithDictionary:responseObject];
@@ -59,12 +52,8 @@
                 self.movie.moviePoster = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:str]];
                 self.posterImageView.image = [UIImage imageWithData: self.movie.moviePoster ];
             }
-            //reload your tableview data
             [_hud hideAnimated:NO];
             [_hud showAnimated:NO];
-            //self.movies = [[NSDictionary alloc] initWithDictionary:responseObject];
-            //NSLog(@"\n\nMovies:%@", self.movies);
-            //NSLog(@"\n\nSize:%lu", [[self.movies allKeys] count]);
             
         }
     }];
@@ -79,80 +68,14 @@
     [super didReceiveMemoryWarning];
 }
 
-/*
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)favorite:(id)sender {
     UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"ADD Movie"
-                                  message:@"You want add the movie?"
+                                  alertControllerWithTitle:@"Favorite Movie"
+                                  message:@"Want to add this movie to your favorites?"
                                   preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction* add = [UIAlertAction actionWithTitle:@"ADD" style:UIAlertActionStyleDefault
+    UIAlertAction* save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
                                                        RLMRealm *realm = [RLMRealm defaultRealm];
                                                        [realm beginWriteTransaction];
@@ -178,11 +101,12 @@
                                                    }];
     
     [alert addAction:cancel];
-    [alert addAction:add];
+    [alert addAction:save];
     
     [self presentViewController:alert animated:YES completion:nil];
 }
 -(void) back{
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end
