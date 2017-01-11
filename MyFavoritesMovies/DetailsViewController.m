@@ -45,13 +45,14 @@
             self.actorsLabel.text = self.movie.actors;
             self.synopsisLabel.text = self.movie.synopsis;
             if([self.movie.moviePosterURL isEqualToString:@"N/A"]){
-                self.posterImageView.image = [UIImage imageNamed:@"not-found.png"];
+               NSString *str = @"https://az853139.vo.msecnd.net/static/images/not-found.png";
+                self.movie.moviePoster = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:str]];
             }else{
                 NSString *str = [self.movie.moviePosterURL stringByReplacingOccurrencesOfString:@"http:"
                                                                                      withString:@"https:"];
                 self.movie.moviePoster = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:str]];
-                self.posterImageView.image = [UIImage imageWithData: self.movie.moviePoster ];
             }
+            self.posterImageView.image = [UIImage imageWithData: self.movie.moviePoster ];
             [_hud hideAnimated:NO];
             [_hud showAnimated:NO];
             

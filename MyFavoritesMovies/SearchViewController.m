@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _mSearchBar.delegate = self;
-    movies = [NSMutableArray arrayWithCapacity:10];
+    self.mSearchBar.placeholder = @"Search movies";
 }
 
 - (void)didReceiveMemoryWarning {
