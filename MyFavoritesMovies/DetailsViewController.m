@@ -10,7 +10,6 @@
 #import "Movie.h"
 #import <AFNetworking.h>
 #import "DetailsViewController.h"
-#import "RLMMovie.h"
 @interface DetailsViewController ()
 
 @end
@@ -79,7 +78,6 @@
     UIAlertAction* save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
                                                        RLMRealm *realm = [RLMRealm defaultRealm];
-                                                       [realm beginWriteTransaction];
                                                        RLMMovie *information = [[RLMMovie alloc] init];
                                                        information.title=movie.title;
                                                        information.year=movie.year;
@@ -92,9 +90,16 @@
                                                        information.runtime=movie.runtime;
                                                        information.imdbid=movie.imdbid;
                                                        information.moviePoster = movie.moviePoster;
-                                                       [realm addObject:information];
-                                                       [realm commitWriteTransaction];
-                                                       [self back];
+                                                       RLMResults<RLMMovie *> *someDogs = [RLMMovie objectsWhere:@"imdbid = %@",movie.imdbid];
+                                                       if(someDogs.firstObject == nil){
+                                                           [realm beginWriteTransaction];
+                                                           [realm addObject:information];
+                                                           [realm commitWriteTransaction];
+                                                       }else{
+                                                           [self back:1];
+                                                       }
+                                                    
+                                                           [self back:0];
                                                    }];
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
@@ -106,8 +111,25 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
--(void) back{
+-(void) aviso{
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"This movie is Favorite!"
+                                  message:@"This movie is already in favorites"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* Ok = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       [self back:0];
+                                                   }];
     
+    [alert addAction:Ok];
+
+    [self presentViewController:alert animated:YES completion:nil];
+}
+-(void) back:(int)id{
+    if(id==1){
+        [self aviso];
+    }else{
     [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 @end

@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Movie.h"
 #import <MBProgressHUD.h>
-@interface DetailsViewController : UITableViewController
+#import "RLMMovie.h"
+@interface DetailsViewController : UITableViewController{
+RLMResults *tableDataArray;
+}
 @property (nonatomic, strong) NSString *imdbid;
 @property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
 @property (weak, nonatomic) IBOutlet UITextView *titleLabel;

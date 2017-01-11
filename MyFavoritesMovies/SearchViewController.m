@@ -22,6 +22,7 @@
     [super viewDidLoad];
     _mSearchBar.delegate = self;
     self.mSearchBar.placeholder = @"Search movies";
+    self.hud.tintColor = [UIColor blueColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,10 +62,9 @@
     cell.posterImageView.image = [UIImage imageWithData: imageData];
     }
     if(indexPath.row%2==0){
-        cell.backgroundColor=[UIColor lightGrayColor];
         cell.backgroundColor = [cell.backgroundColor colorWithAlphaComponent:0.2];
     }else{
-        cell.backgroundColor=[UIColor whiteColor];
+       cell.backgroundColor = [cell.backgroundColor colorWithAlphaComponent:0];
     }
     return cell;
 }

@@ -61,7 +61,6 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
        //Delete
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         RLMMovie *information = [tableDataArray objectAtIndex:indexPath.row];
         RLMRealm *realm = [RLMRealm defaultRealm];
         [realm beginWriteTransaction];
@@ -78,10 +77,9 @@
     cell.yearLabel.text=information.year;
     cell.posterImageView.image = [UIImage imageWithData:information.moviePoster];
     if(indexPath.row%2==0){
-    cell.backgroundColor=[UIColor lightGrayColor];
     cell.backgroundColor = [cell.backgroundColor colorWithAlphaComponent:0.2];
     }else{
-      cell.backgroundColor=[UIColor whiteColor];
+      cell.backgroundColor = [cell.backgroundColor colorWithAlphaComponent:0];
     }
     return cell;
 }
