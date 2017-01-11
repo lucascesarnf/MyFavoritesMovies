@@ -41,7 +41,7 @@
     else
     {
         UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _mTableView.bounds.size.width, _mTableView.bounds.size.height)];
-        noDataLabel.text             = @"Please add Favorites";
+        noDataLabel.text             = @"Please add Favorites into Search";
         noDataLabel.textColor        = [UIColor blackColor];
         noDataLabel.textAlignment    = NSTextAlignmentCenter;
         _mTableView.backgroundView = noDataLabel;
@@ -55,7 +55,22 @@
     return [tableDataArray count];
 }
 
-
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+       //Delete
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        RLMMovie *information = [tableDataArray objectAtIndex:indexPath.row];
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        [realm deleteObject:information];
+        [realm commitWriteTransaction];
+      //
+        [_mTableView reloadData];
+    }
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     RLMMovie *information = [tableDataArray objectAtIndex:indexPath.row];
