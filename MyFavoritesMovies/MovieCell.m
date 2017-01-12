@@ -5,7 +5,6 @@
 //  Created by Lucas César  Nogueira Fonseca on 30/12/16.
 //  Copyright © 2016 Lucas César  Nogueira Fonseca. All rights reserved.
 //
-
 #import "MovieCell.h"
 
 @implementation MovieCell
@@ -18,7 +17,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 

@@ -5,7 +5,6 @@
 //  Created by Lucas César  Nogueira Fonseca on 30/12/16.
 //  Copyright © 2016 Lucas César  Nogueira Fonseca. All rights reserved.
 //
-
 #import "MovieViewController.h"
 #import "MovieCell.h"
 #import "InformationViewController.h"
@@ -16,12 +15,12 @@
 
 @implementation MovieViewController
 -(void)viewDidAppear:(BOOL)animated{
-     [_mTableView reloadData];
+     [_mTableView reloadData];//Update table View whenever you open the screen
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    tableDataArray=[RLMMovie allObjects];
-    [_mTableView reloadData];
+    tableDataArray=[RLMMovie allObjects];//Get all objects stored in realm
+    [_mTableView reloadData];//Update Table View
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,15 +30,18 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Manager the number of sections in the application
     NSInteger numOfSections = 0;
     if ([tableDataArray count] > 0)
     {
+        //Show cells
         _mTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         numOfSections                = 1;
         _mTableView.backgroundView = nil;
     }
     else
     {
+        //Show message
         UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _mTableView.bounds.size.width, _mTableView.bounds.size.height)];
         noDataLabel.text             = @"Please add Favorites into Search";
         noDataLabel.textColor        = [UIColor blackColor];
@@ -56,11 +58,12 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    return YES;//
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    //Manager the swipe for delete
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-       //Delete
+       //Delete in realm
         RLMMovie *information = [tableDataArray objectAtIndex:indexPath.row];
         RLMRealm *realm = [RLMRealm defaultRealm];
         [realm beginWriteTransaction];
@@ -71,11 +74,13 @@
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //Shows the cells that are in realm
     MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     RLMMovie *information = [tableDataArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = information.title;
     cell.yearLabel.text=information.year;
     cell.posterImageView.image = [UIImage imageWithData:information.moviePoster];
+    //Toggles cell color
     if(indexPath.row%2==0){
     cell.backgroundColor = [cell.backgroundColor colorWithAlphaComponent:0.2];
     }else{
@@ -85,6 +90,7 @@
 }
 
 - (IBAction)deleteMovie{
+    //Delete selected movie
 NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 RLMMovie *information = [tableDataArray objectAtIndex:indexPath.row];
 RLMRealm *realm = [RLMRealm defaultRealm];
@@ -95,6 +101,7 @@ RLMRealm *realm = [RLMRealm defaultRealm];
 }
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //Transfer your information for next screen
     if ([segue.identifier isEqualToString:@"movieInformation"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         InformationViewController *destViewController = segue.destinationViewController;

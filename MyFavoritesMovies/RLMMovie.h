@@ -5,7 +5,7 @@
 //  Created by Lucas César  Nogueira Fonseca on 10/01/17.
 //  Copyright © 2017 Lucas César  Nogueira Fonseca. All rights reserved.
 //
-
+//This model is the local persistence
 #import <Realm/Realm.h>
 
 @interface RLMMovie : RLMObject

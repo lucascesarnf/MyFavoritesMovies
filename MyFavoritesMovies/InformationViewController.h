@@ -5,7 +5,7 @@
 //  Created by Lucas César  Nogueira Fonseca on 02/01/17.
 //  Copyright © 2017 Lucas César  Nogueira Fonseca. All rights reserved.
 //
-
+//This class manager detailsview from Realm
 #import <UIKit/UIKit.h>
 #import "MovieViewController.h"
 @interface InformationViewController : UITableViewController
@@ -31,7 +31,5 @@
 @property (nonatomic, copy) NSString *runtime;
 @property (nonatomic, copy) NSData *moviePoster;
 @property (nonatomic, copy) NSString *imdbid;
-- (IBAction)deleteMovie:(id)sender;
-
-
+- (IBAction)deleteMovie:(id)sender;//call father deletemovie
 @end

@@ -5,7 +5,7 @@
 //  Created by Lucas César  Nogueira Fonseca on 09/01/17.
 //  Copyright © 2017 Lucas César  Nogueira Fonseca. All rights reserved.
 //
-
+//This class manager detailsview from afnetwork
 #import <UIKit/UIKit.h>
 #import "Movie.h"
 #import <MBProgressHUD.h>

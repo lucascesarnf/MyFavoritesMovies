@@ -5,7 +5,7 @@
 //  Created by Lucas César  Nogueira Fonseca on 30/12/16.
 //  Copyright © 2016 Lucas César  Nogueira Fonseca. All rights reserved.
 //
-
+//This model show movie cell information
 #import <UIKit/UIKit.h>
 
 @interface MovieCell : UITableViewCell

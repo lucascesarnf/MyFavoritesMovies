@@ -5,7 +5,7 @@
 //  Created by Lucas César  Nogueira Fonseca on 09/01/17.
 //  Copyright © 2017 Lucas César  Nogueira Fonseca. All rights reserved.
 //
-
+//This model set all informations of movie 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @interface Movie : NSObject
@@ -37,7 +37,7 @@
 @property (nonatomic, copy) NSString *imdbid;
 //@property (nonatomic, copy) NSData *moviePosterData;
 
--(id)initWithDictionary:(NSDictionary *)sourceDictionary;
+-(id)initWithDictionary:(NSDictionary *)sourceDictionary;//Get infomation of dictionary
 
 
 @end

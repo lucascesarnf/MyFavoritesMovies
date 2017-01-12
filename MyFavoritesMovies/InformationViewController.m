@@ -26,6 +26,7 @@
 @synthesize imdbid;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //Set segue information
     _titleLabel.text = title;
     _yearLabel.text = year;
     _ratingLabel.text = rating;
@@ -51,7 +52,7 @@
     
     UIAlertAction* delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault
                                                  handler:^(UIAlertAction * action) {
-                                                     [_father deleteMovie];
+                                                     [_father deleteMovie];//Call father deleteMovie
                                                      [self back];
                                                  }];
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault

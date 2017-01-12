@@ -18,6 +18,7 @@
 @synthesize imdbid;
 @synthesize movie;
 - (void)viewDidLoad {
+    //Get imdbID and search every movie informations
     [super viewDidLoad];
     //Network:
     NSLog(@"\n\nID: %@\n\n", imdbid);
@@ -30,6 +31,19 @@
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error);
+            [_hud hideAnimated:NO];
+            [_hud showAnimated:NO];
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"An error has occurred!"
+                                          message:@"Please check your internet connection."
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* Ok = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * action) {
+                                                           [alert dismissViewControllerAnimated:YES completion:nil];
+                                                       }];
+            
+            [alert addAction:Ok];
+            [self presentViewController:alert animated:YES completion:nil];
         } else {
             [_hud hideAnimated:YES];
             [_hud showAnimated:YES];
@@ -43,6 +57,7 @@
             self.directorLabel.text = self.movie.director;
             self.actorsLabel.text = self.movie.actors;
             self.synopsisLabel.text = self.movie.synopsis;
+            //Get not-found image:
             if([self.movie.moviePosterURL isEqualToString:@"N/A"]){
                NSString *str = @"https://az853139.vo.msecnd.net/static/images/not-found.png";
                 self.movie.moviePoster = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:str]];
@@ -57,10 +72,12 @@
             
         }
     }];
+    //Show loading
     _hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     _hud.label.text = @"Loading";
     [_hud hideAnimated:YES];
     [_hud showAnimated:YES];
+    //Call function afnetwork dataTask
     [dataTask resume];
 }
 
@@ -70,6 +87,7 @@
 
 
 - (IBAction)favorite:(id)sender {
+    //If save movie is clicked
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Favorite Movie"
                                   message:@"Want to add this movie to your favorites?"
@@ -91,6 +109,7 @@
                                                        information.imdbid=movie.imdbid;
                                                        information.moviePoster = movie.moviePoster;
                                                        RLMResults<RLMMovie *> *someDogs = [RLMMovie objectsWhere:@"imdbid = %@",movie.imdbid];
+                                                      // Check if the movie is already saved
                                                        if(someDogs.firstObject == nil){
                                                            [realm beginWriteTransaction];
                                                            [realm addObject:information];
@@ -111,7 +130,8 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
--(void) aviso{
+-(void) alert{
+    //Show
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"This movie is Favorite!"
                                   message:@"This movie is already in favorites"
@@ -126,9 +146,12 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 -(void) back:(int)id{
+   
     if(id==1){
-        [self aviso];
+         //If movie is already saved show message
+        [self alert];
     }else{
+         //If movie is not already saved
     [self.navigationController popViewControllerAnimated:YES];
     }
 }
