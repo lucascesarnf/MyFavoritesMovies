@@ -19,7 +19,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    tableDataArray=[RLMMovie allObjects];//Get all objects stored in realm
+   tableDataArray = [[RLMMovie allObjects] sortedResultsUsingDescriptors:@[
+                                                       [RLMSortDescriptor sortDescriptorWithProperty:@"title" ascending:YES]
+                                                       ]];
+    //tableDataArray=[RLMMovie allObjects];//Get all objects stored in realm
     [_mTableView reloadData];//Update Table View
 }
 
