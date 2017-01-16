@@ -66,7 +66,7 @@
                                                                                      withString:@"https:"];
                 self.movie.moviePoster = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:str]];
             }
-            self.posterImageView.image = [UIImage imageWithData: self.movie.moviePoster ];
+            self.posterImageView.image = [UIImage imageWithData: self.movie.moviePoster];
             [_hud hideAnimated:NO];
             [_hud showAnimated:NO];
             

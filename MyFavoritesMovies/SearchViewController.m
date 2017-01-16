@@ -22,6 +22,7 @@
     [super viewDidLoad];
     _mSearchBar.delegate = self;//Delegate data
     self.mSearchBar.placeholder = @"Search movies";
+    self.currentPage = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,7 +69,7 @@
     NSString *str = [searchBar.text stringByReplacingOccurrencesOfString:@" "
                                          withString:@"+"];
     NSLog(@"\n\nString New:%@",str);
-    
+    _searche = str;
     //Network:
     NSString *link = [NSString stringWithFormat:@"https://www.omdbapi.com/?s=%@&y=&plot=short&r=json",str];
     NSURL *URL = [NSURL URLWithString:link];
@@ -94,16 +95,24 @@
              [self presentViewController:alert animated:YES completion:nil];
         
         } else {
+            self.currentPage = 1;
             NSLog(@"\n\nMovies:%@", responseObject);
             movies=[[NSMutableArray alloc]init];
             NSDictionary *resultDictinary = [responseObject objectForKey:@"Search"];
+            int number = [[responseObject objectForKey:@"totalResults"] intValue];
+            if((number % 10)>0){
+                _numPages = (number /10)+1;
+            }else{
+                _numPages = (number / 10);
+            }
+            NSLog(@"\n%@",responseObject);
             for (NSDictionary *movieDictionary in resultDictinary)
             {
                 Movie *newUSer=[[Movie alloc]initWithDictionary:movieDictionary];
                 [movies addObject:newUSer];
             }
             
-            NSLog(@"\n\nMovies:%@", self.movies);
+           // NSLog(@"\n\nMovies:%@", self.movies);
             if(movies.count == 0){
                 UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _mTableView.bounds.size.width, _mTableView.bounds.size.height)];
                 noDataLabel.text             = @"No results";
@@ -111,6 +120,9 @@
                 noDataLabel.textAlignment    = NSTextAlignmentCenter;
                 _mTableView.backgroundView = noDataLabel;
                 _mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            }else{
+                _mTableView.backgroundView = nil;
+
             }
             [_mTableView reloadData];
             [_hud hideAnimated:NO];
@@ -125,6 +137,63 @@
     //call afnetwork in dataTask
     [dataTask resume];
     
+}
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger lastSectionIndex = [tableView numberOfSections] - 1;
+    NSInteger lastRowIndex = [tableView numberOfRowsInSection:lastSectionIndex] - 1;
+    if ((indexPath.section == lastSectionIndex) && (indexPath.row == lastRowIndex)) {
+    //AFNetwork:
+        //Network:
+        self.currentPage += 1;
+        if(_currentPage<=_numPages){
+        NSString *link = [NSString stringWithFormat:@"https://www.omdbapi.com/?s=%@&page=%d",_searche,_currentPage];
+        NSURL *URL = [NSURL URLWithString:link];
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+        
+        NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+            if (error) {
+                NSLog(@"Error: %@", error);
+                [_hud hideAnimated:NO];
+                [_hud showAnimated:NO];
+                UIAlertController * alert=   [UIAlertController
+                                              alertControllerWithTitle:@"An error has occurred!"
+                                              message:@"Please check your internet connection."
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* Ok = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction * action) {
+                                                               [alert dismissViewControllerAnimated:YES completion:nil];
+                                                           }];
+                
+                [alert addAction:Ok];
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            } else {
+                NSDictionary *resultDictinary = [responseObject objectForKey:@"Search"];
+                for (NSDictionary *movieDictionary in resultDictinary)
+                {
+                    Movie *newUSer=[[Movie alloc]initWithDictionary:movieDictionary];
+                    [movies addObject:newUSer];
+                }
+                
+                _mTableView.backgroundView = nil;
+                    
+                
+                [_mTableView reloadData];
+                [_hud hideAnimated:NO];
+                [_hud showAnimated:NO];
+            }
+        }];
+        //Show Loading:
+        _hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        _hud.label.text = @"Loading";
+        [_hud hideAnimated:YES];
+        [_hud showAnimated:YES];
+        //call afnetwork in dataTask
+        [dataTask resume];
+       }
+    }
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     ////Transfer your information for next screen
